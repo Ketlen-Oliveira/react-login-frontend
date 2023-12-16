@@ -15,7 +15,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/login',
+        'https://login-service-ped6.onrender.com/login',
         JSON.stringify({ email, password }),
         {
           headers: { 'Content-Type': 'application/json' },
@@ -26,7 +26,7 @@ function Login() {
     } catch (error) {
       if (!error?.response) {
         setError('Erro ao acessar ao servidor');
-      } else if (error.response.status == 401) {
+      } else if (error.response.status === 401) {
         setError('Usuário ou senha incorretos!');
       }
     }
